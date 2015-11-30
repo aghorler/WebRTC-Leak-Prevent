@@ -1,9 +1,13 @@
 ## WebRTC Leak Prevent
-Sets the WebRTC Multiple Routes Enabled privacy option in Chromium browsers (42+) to false.
+#####Version 1.0.5.1 | November 30 2015
 
-An extremely simplistic use of the chrome.privacy API. The value is set to 'false, and the scope to 'regular'.
+WebRTC Leak Prevent provides user control over WebRTC settings in Chrome that have no native GUI. The intented use of the extension is to prevent [WebRTC leaks](https://diafygi.github.io/webrtc-ips/).
 
-The only required permission is 'privacy'.
+In Chromium version 42+, the extenion sets 'webRTCMultipleRoutesEnabled' to false.
+In Chromium version 47+, the extensions gives  the user boolean control over 'webRTCNonProxiedUdpEnabled'.
+In Chromium version 48+, the extension gives the user control over 'webRTCIPHandlingPolicy'.
+
+The only required permissions are 'privacy' and 'storage'.
 
 #####Download
 
