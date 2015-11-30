@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>WebRTC Leak Prevent</title>
+</head>
+
+<body>
+	<h3>Advanced options</h3>
+	<p style="color:grey">At the time of releasing this update, some settings are only supported by future versions of Chrome. These settings will not affect older versions. I will update this extension as new versions are pushed to the stable channel.</p>
+	<p style="color:red">Most users will not need to change anything here.</p>
+	<h4>Stable channel options (v42+)</h4>
+	<p>
+		<label style="color:grey">
+			<input type="checkbox" disabled="disabled" checked="checked"> Prevent WebRTC from using routes other than the default route.
+			<br>
+			<i>(Disable or remove this extension to revert this setting)</i>
+		</label>
+	</p>
+	<p>
+		<h4>Beta channel options (v47+)</h4>
+		<label>
+			<input type="checkbox" id="proxy"> Prevent WebRTC from using non-proxied UDP.
+			<br>
+			<i>(Only supported from Chrome version 47)</i>
+		</label>
+	</p>
+	<p>
+		<h4>Dev channel options (v48+)</h4> IP handling policy:
+		<select id="policy">
+			<option value="default_public_interface_only">Use the default public interface only</option>
+			<option value="disable_non_proxied_udp">Disable non-proxied UDP</option>
+		</select>
+		<br>
+		<i>(This is a new method of WebRTC IP handling supported from Chrome version 48)</i>
+	</p>
+	<div id="status"></div>
+	<button id="save">Apply settings</button>
+	<script src="/js/options.js"></script>
+	<p align="center" style="color:grey">Developed by rentamob | <a href="https://www.reddit.com/user/rentamob/">/u/rentamob</a> on reddit | <a href="https://github.com/rentamob/WebRTC-Leak-Prevent">GitHub source</a></p>
+</body>
+
+</html>
