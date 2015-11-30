@@ -1,14 +1,19 @@
 {
-  "manifest_version": 2,
-  "name": "WebRTC Leak Prevent",
-  "version": "1.0.3",
-  "description": "Prevent WebRTC leaks, without blocking WebRTC.",
-  "icons": {
-      "128": "/img/icon128.png"
-   },
-  "permissions": [ "privacy" ],
-  "background": {
-    "scripts": ["/js/background.js"],
-	"persistent": false
-  }
+    "manifest_version": 2,
+    "name": "WebRTC Leak Prevent",
+    "version": "1.0.5.1",
+    "description": "Prevent WebRTC leaks, without blocking WebRTC.",
+    "icons": {
+        "128": "/img/icon128.png"
+    },
+    "options_ui": {
+        "page": "/html/options.html",
+        "chrome_style": true,
+        "open_in_tab": false
+    },
+    "permissions": ["privacy", "storage"],
+    "background": {
+        "scripts": ["/js/background.js"],
+        "persistent": false
+    }
 }
