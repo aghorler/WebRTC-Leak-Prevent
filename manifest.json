@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "WebRTC Leak Prevent",
-    "version": "1.0.5.1",
+    "version": "1.0.6",
     "description": "Prevent WebRTC leaks, without blocking WebRTC.",
     "icons": {
         "128": "/img/icon128.png"
