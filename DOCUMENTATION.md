@@ -6,9 +6,9 @@
 
 Setting | Effect 
 --- | ---
-`Use the default public interface only` | Send WebRTC requests via the default public network adapter. In the case of OpenVPN users, the default interface will the the virtual one that the VPN creates. In the case of system VPN users, this will prevent leaks.
-`Use the default public interface and private interface` | Same as above, except allow WebRTC to send requests over the default private interface to your local network.
-`Disable non-proxied UDP (force proxy)` | Force the use of a proxy, and only allow WebRTC to use UDP proxies.
+`Use the default public interface only` | Send WebRTC traffic via the default public network adapter. In the case of OpenVPN users, the default interface will the the virtual one that the VPN creates.
+`Use the default public interface and private interface` | Same as above, except allow WebRTC traffic over the default private interface to your local network.
+`Disable non-proxied UDP (force proxy)` | Force the use of a proxy, and only allow WebRTC traffic over UDP proxies.
 
 **Legacy options**
 
