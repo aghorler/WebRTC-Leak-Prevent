@@ -10,18 +10,18 @@ function save_options() {
 		var status = document.getElementById('status');
 		status.textContent = 'Options saved.';
 		//Set to user preference.
-		chrome.storage.local.get(null, function(items) {
+		chrome.storage.local.get('rtcIPHandling', function(items) {
 			chrome.privacy.network.webRTCIPHandlingPolicy.set({
 				value: items.rtcIPHandling
 			});
 		});
-		chrome.storage.local.get(null, function(items) {
+		chrome.storage.local.get('rtcMultipleRoutes', function(items) {
 			chrome.privacy.network.webRTCMultipleRoutesEnabled.set({
 				value: !items.rtcMultipleRoutes,
 				scope: 'regular'
 			});
 		});
-		chrome.storage.local.get(null, function(items) {
+		chrome.storage.local.get('nonProxiedUDP', function(items) {
 			chrome.privacy.network.webRTCNonProxiedUdpEnabled.set({
 				value: !items.nonProxiedUDP,
 				scope: 'regular'
