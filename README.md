@@ -7,9 +7,9 @@ The only required permissions are 'privacy' and 'storage'.
 
 #####How it works
 
-In **Chromium version 48+**, the extension gives the user control over `webRTCIPHandlingPolicy`, defaulting to `default_public_interface_only`.
+In **Chromium version 48+**, the extension provides user control over `webRTCIPHandlingPolicy`, defaulting to `default_public_interface_only`.
 
-In older versions of Chromium, legacy options are supported. This includes `webRTCMultipleRoutesEnabled` for **Chromium version 42+**, and `webRTCNonProxiedUdpEnabled` for **Chromium version 47+**
+In older versions of Chromium, legacy options are supported. This includes `webRTCMultipleRoutesEnabled` for **Chromium version 42+**, and `webRTCNonProxiedUdpEnabled` for **Chromium version 47+**.
 
 #####Download
 
