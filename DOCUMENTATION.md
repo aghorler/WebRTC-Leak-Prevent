@@ -6,13 +6,15 @@
 
 Setting | Effect 
 --- | ---
-`Use the default public interface only` | Send WebRTC traffic via the default public network adapter. In the case of OpenVPN users, the default interface will the the virtual one that the VPN creates.
+`Use the default public interface only` | Send WebRTC traffic via the default public network adapter. This will be the VPN adapter for system-VPN users.
 `Use the default public interface and private interface` | Same as above, except allow WebRTC traffic over the default private interface to your local network.
 `Disable non-proxied UDP (force proxy)` | Force the use of a proxy, and only allow WebRTC traffic over UDP proxies.
 
 **Legacy options**
 
 `Prevent WebRTC from using routes other than the default route` is identical to `Use the default public interface only`, and `Prevent WebRTC from using non-proxied UDP` is identical to `Disable non-proxied UDP (force proxy)`.
+
+**Note:** *WebRTC IP handling policy* options will override the legacy options in Chrome 48 and above.
 
 --
 #### I'm using a VPN or proxy, how do I prevent WebRTC leaks?
