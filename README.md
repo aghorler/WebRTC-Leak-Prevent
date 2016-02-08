@@ -17,7 +17,7 @@ In older versions of Chromium, legacy options are supported. This includes `webR
 
 [Opera Addons](https://addons.opera.com/en/extensions/details/webrtc-leak-prevent/)
 
-You may also run the extension unpacked via Developer mode. Just download or clone the respository.
+You may also run the extension unpacked via Developer mode. Just download or clone the repository.
 
 ---
 
