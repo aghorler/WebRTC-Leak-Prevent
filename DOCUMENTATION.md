@@ -7,7 +7,7 @@
 Setting | Effect 
 --- | ---
 `Use the default public interface only` | Send WebRTC traffic via the default public network adapter. This will be the VPN adapter for system-VPN users.
-`Use the default public interface and private interface` | Same as above, except allow WebRTC traffic over the default private interface to your local network.
+`Use the default public interface and private interface` | Same as above, except allow WebRTC traffic over the default private interface to your local network as well.
 `Disable non-proxied UDP (force proxy)` | Force the use of a proxy, and only allow WebRTC traffic over UDP proxies.
 
 **Legacy options**
@@ -29,16 +29,21 @@ In your case, the default settings should prevent leaks.
 *WebRTC IP handling policy* is set to `Use the default public interface only` by default, and the equivalent legacy option, `Prevent WebRTC from using routes other than the default route`, is set to `true` by default.
 
 --
-**I'm using a VPN in the form of a Chrome extension.**
+**I'm using a VPN in the form of a browser extension.**
 
-These VPNs are considered proxies in Chrome.
+These VPNs are considered proxies in Chromium.
 
-Set *WebRTC IP handling policy* to `Disable non-proxied UDP (force proxy)`, and optionally the equivalent legacy option, `Prevent WebRTC from using non-proxied UDP`, to `true` (as in checked).
+Set *WebRTC IP handling policy* to `Disable non-proxied UDP (force proxy)`.
+
+--
+**I'm using the built-in VPN feature in Opera.**
+
+Set *WebRTC IP handling policy* to `Disable non-proxied UDP (force proxy)`.
 
 --
 **I'm using a proxy.**
 
-Set *WebRTC IP handling policy* to `Disable non-proxied UDP (force proxy)`, and optionally the equivalent legacy option, `Prevent WebRTC from using non-proxied UDP`, to `true` (as in checked).
+Set *WebRTC IP handling policy* to `Disable non-proxied UDP (force proxy)`.
 
 --
 **I'm not using a proxy or a VPN, but I want to conceal my local IP address.**
