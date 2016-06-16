@@ -11,18 +11,30 @@ function displayContent(){
 	var divApply = document.getElementById('applyButton');
 	
 	if(getMajorVerison() > 47){
-		divLegacy.style.display='none';
-		divFail.style.display='none';
+		divLegacy.style.display = 'none';
+		divFail.style.display = 'none';
 	}
 	else if(getMajorVerison() > 41 && getMajorVerison() < 48){
-		divNew.style.display='none';
-		divFail.style.display='none';
+		divNew.style.display = 'none';
+		divFail.style.display = 'none';
 	}
 	else{
-		divContent.style.display='none';
-		divApply.style.display='none';
+		divContent.style.display = 'none';
+		divApply.style.display = 'none';
 	}
 }
+
+chrome.extension.isAllowedIncognitoAccess(function(isAllowedAccess){
+	var incognitoAllowed = document.getElementById('incognitoAllowed');
+	var incognitoDisallowed = document.getElementById('incognitoDisallowed');
+	
+    if(isAllowedAccess == true){
+		incognitoDisallowed.style.display = 'none';
+	}
+	else{
+		incognitoAllowed.style.display = 'none';
+	}
+});
 
 function save_options(){
 	if(getMajorVerison() > 47){
@@ -91,4 +103,5 @@ function restore_options(){
 
 document.addEventListener('DOMContentLoaded', displayContent);
 document.addEventListener('DOMContentLoaded', restore_options);
+document.addEventListener('DOMContentLoaded', chrome.extension.isAllowedIncognitoAccess);
 document.getElementById('save').addEventListener('click', save_options);
