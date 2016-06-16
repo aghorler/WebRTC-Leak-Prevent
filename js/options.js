@@ -1,34 +1,43 @@
-function getMajorVerison() {
+function getMajorVerison(){
 	var raw = navigator.userAgent.match(/Chrom(e|ium)\/([0-9]+)\./);
 	return raw ? parseInt(raw[2], 10) : false;
 }
 
-function writeContent()	{
-	if(getMajorVerison() > 48){
-		document.getElementById("content").innerHTML = '<p><strong>WebRTC IP handling policy</strong></p><p>IP handling policy:<select id="policy"><option value="default_public_interface_only">Use the default public interface only</option><option value="default_public_and_private_interfaces">Use the default public interface and private interface</option><option value="disable_non_proxied_udp">Disable non-proxied UDP (force proxy)</option></select>';
+function displayContent(){
+	var divContent = document.getElementById('content');
+	var divNew = document.getElementById('new');
+	var divLegacy = document.getElementById('legacy');
+	var divFail = document.getElementById('fail');
+	var divApply = document.getElementById('applyButton');
+	
+	if(getMajorVerison() > 47){
+		divLegacy.style.display='none';
+		divFail.style.display='none';
 	}
 	else if(getMajorVerison() > 41 && getMajorVerison() < 48){
-		document.getElementById("content").innerHTML = '<p><strong>Legacy options</strong><p><label><input type="checkbox" id="multipleroutes"> Prevent WebRTC from using routes other than the default route.<br><i>(Supported from Chrome version 42, and depreciated from version 48)</i></label></p><p><label><input type="checkbox" id="proxy"> Prevent WebRTC from using non-proxied UDP.<br><i>(Supported from Chrome version 47, and depreciated from version 48)</i></label></p></p>';
+		divNew.style.display='none';
+		divFail.style.display='none';
 	}
 	else{
-		document.getElementById("content").innerHTML = '<p style="color:red">This version of Chrome is incompaitible with the required WebRTC privacy options.';
+		divContent.style.display='none';
+		divApply.style.display='none';
 	}
 }
 
-function save_options() {
-	if(getMajorVerison() > 48){
+function save_options(){
+	if(getMajorVerison() > 47){
 		var policy = document.getElementById('policy').value;
 		chrome.storage.local.set({
 			rtcIPHandling: policy
-		}, function() {
+		}, function(){
 			var status = document.getElementById('status');
 			status.textContent = 'Options saved.';
-			chrome.storage.local.get('rtcIPHandling', function(items) {
+			chrome.storage.local.get('rtcIPHandling', function(items){
 				chrome.privacy.network.webRTCIPHandlingPolicy.set({
 					value: items.rtcIPHandling
 				});
 			});
-			setTimeout(function() {
+			setTimeout(function(){
 				status.textContent = '';
 			}, 750);
 		});
@@ -39,33 +48,33 @@ function save_options() {
 		chrome.storage.local.set({
 			nonProxiedUDP: nonProxiedUDP,
 			rtcMultipleRoutes: rtcMultipleRoutes
-		}, function() {
+		}, function(){
 			var status = document.getElementById('status');
 			status.textContent = 'Options saved.';
-			chrome.storage.local.get('rtcMultipleRoutes', function(items) {
+			chrome.storage.local.get('rtcMultipleRoutes', function(items){
 				chrome.privacy.network.webRTCMultipleRoutesEnabled.set({
 					value: !items.rtcMultipleRoutes,
 					scope: 'regular'
 				});
 			});
-			chrome.storage.local.get('nonProxiedUDP', function(items) {
+			chrome.storage.local.get('nonProxiedUDP', function(items){
 				chrome.privacy.network.webRTCNonProxiedUdpEnabled.set({
 					value: !items.nonProxiedUDP,
 					scope: 'regular'
 				});
 			});
-			setTimeout(function() {
+			setTimeout(function(){
 				status.textContent = '';
 			}, 750);
 		});
 	}
 }
 
-function restore_options() {
-	if(getMajorVerison() > 48){
+function restore_options(){
+	if(getMajorVerison() > 47){
 		chrome.storage.local.get({
 			rtcIPHandling: 'default_public_interface_only'
-		}, function(items) {
+		}, function(items){
 			document.getElementById('policy').value = items.rtcIPHandling;
 		});
 	}
@@ -73,12 +82,13 @@ function restore_options() {
 		chrome.storage.local.get({
 			nonProxiedUDP: false,
 			rtcMultipleRoutes: true
-		}, function(items) {
+		}, function(items){
 			document.getElementById('proxy').checked = items.nonProxiedUDP;
 			document.getElementById('multipleroutes').checked = items.rtcMultipleRoutes;
 		});
 	}
 }
-document.addEventListener('DOMContentLoaded', writeContent);
+
+document.addEventListener('DOMContentLoaded', displayContent);
 document.addEventListener('DOMContentLoaded', restore_options);
 document.getElementById('save').addEventListener('click', save_options);
