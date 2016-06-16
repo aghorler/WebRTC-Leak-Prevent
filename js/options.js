@@ -28,7 +28,7 @@ chrome.extension.isAllowedIncognitoAccess(function(isAllowedAccess){
 	var incognitoAllowed = document.getElementById('incognitoAllowed');
 	var incognitoDisallowed = document.getElementById('incognitoDisallowed');
 	
-    if(isAllowedAccess == true){
+	if(isAllowedAccess == true){
 		incognitoDisallowed.style.display = 'none';
 	}
 	else{
