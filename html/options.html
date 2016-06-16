@@ -8,12 +8,50 @@
 <body>
 	<h3>Advanced options</h3>
 	
-	<div id="content"></div>
+	<div id="content">
+		<div id="new">
+			<p>
+				<strong>WebRTC IP handling policy</strong>
+			</p>
+			<p>
+				IP handling policy:
+				<select id="policy">
+					<option value="default_public_interface_only">Use the default public interface only</option>
+					<option value="default_public_and_private_interfaces">Use the default public interface and private interface</option>
+					<option value="disable_non_proxied_udp">Disable non-proxied UDP (force proxy)</option>
+				</select>
+			</p>
+		</div>
+		<div id="legacy">
+			<p>
+				<strong>Legacy options</strong>
+			</p>
+			<p>
+				<label>
+					<input type="checkbox" id="multipleroutes"> Prevent WebRTC from using routes other than the default route. <br>
+					<i>(Supported from Chrome version 42, and depreciated from version 48)</i>
+				</label>
+			</p>
+			<p>
+				<label>
+					<input type="checkbox" id="proxy"> Prevent WebRTC from using non-proxied UDP.<br>
+					<i>(Supported from Chrome version 47, and depreciated from version 48)</i>
+				</label>
+			</p>
+		</div>
+		<p>
+			<a href="https://github.com/rentamob/WebRTC-Leak-Prevent/blob/master/DOCUMENTATION.md#what-do-the-settings-mean-and-do"><i>What do these options mean?</i></a>
+		</p>
+	</div>
 	
-	<p><a href="https://github.com/rentamob/WebRTC-Leak-Prevent/blob/master/DOCUMENTATION.md#what-do-the-settings-mean-and-do"><i>What do these options mean?</i></a></p>
+	<div id="fail">
+		<p style="color:red; text-align:center">This version of Chrome is incompaitible with the required WebRTC privacy options.</p>
+	</div>
 	
 	<div id="status"></div>
-	<button id="save">Apply settings</button>
+	<div id="applyButton">
+		<button id="save">Apply settings</button>
+	</div>
 	<script src="/js/options.js"></script>
 	<p align="center" style="color:grey">Developed by rentamob | <a href="https://www.reddit.com/user/rentamob/">/u/rentamob</a> on reddit | <a href="https://github.com/rentamob/WebRTC-Leak-Prevent">GitHub source</a></p>
 </body>
