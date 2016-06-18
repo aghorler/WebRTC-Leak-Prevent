@@ -8,18 +8,22 @@ function displayContent(){
 	var divNew = document.getElementById('new');
 	var divLegacy = document.getElementById('legacy');
 	var divFail = document.getElementById('fail');
+	var divIncognito = document.getElementById('incognito');
 	var divApply = document.getElementById('applyButton');
 	
 	if(getMajorVerison() > 47){
 		divLegacy.style.display = 'none';
 		divFail.style.display = 'none';
+		chrome.extension.isAllowedIncognitoAccess();
 	}
 	else if(getMajorVerison() > 41 && getMajorVerison() < 48){
 		divNew.style.display = 'none';
 		divFail.style.display = 'none';
+		chrome.extension.isAllowedIncognitoAccess();
 	}
 	else{
 		divContent.style.display = 'none';
+		divIncognito.style.display = 'none';
 		divApply.style.display = 'none';
 	}
 }
@@ -36,7 +40,7 @@ chrome.extension.isAllowedIncognitoAccess(function(isAllowedAccess){
 	}
 });
 
-function save_options(){
+function saveOptions(){
 	if(getMajorVerison() > 47){
 		var policy = document.getElementById('policy').value;
 		chrome.storage.local.set({
@@ -82,7 +86,7 @@ function save_options(){
 	}
 }
 
-function restore_options(){
+function restoreOptions(){
 	if(getMajorVerison() > 47){
 		chrome.storage.local.get({
 			rtcIPHandling: 'default_public_interface_only'
@@ -102,6 +106,5 @@ function restore_options(){
 }
 
 document.addEventListener('DOMContentLoaded', displayContent);
-document.addEventListener('DOMContentLoaded', restore_options);
-document.addEventListener('DOMContentLoaded', chrome.extension.isAllowedIncognitoAccess);
-document.getElementById('save').addEventListener('click', save_options);
+document.addEventListener('DOMContentLoaded', restoreOptions);
+document.getElementById('save').addEventListener('click', saveOptions);
