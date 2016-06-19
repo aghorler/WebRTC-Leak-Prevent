@@ -1,7 +1,7 @@
 ## WebRTC Leak Prevent
-#####Version 1.0.7 | January 21 2016
+#####Version 1.0.8 | June 19 2016
 
-WebRTC Leak Prevent provides user control over WebRTC settings in Chromium that have no native GUI. The intended use of the extension is to prevent [WebRTC leaks](https://diafygi.github.io/webrtc-ips/).
+WebRTC Leak Prevent provides user control over WebRTC privacy settings in Chromium that have no native GUI. The intended use of the extension is to prevent [WebRTC leaks](https://diafygi.github.io/webrtc-ips/).
 
 The only required permissions are 'privacy' and 'storage'.
 
@@ -17,7 +17,7 @@ In older versions of Chromium, legacy options are supported. This includes `webR
 
 [Opera Addons](https://addons.opera.com/en/extensions/details/webrtc-leak-prevent/)
 
-You may also run the extension unpacked via Developer mode. Just download or clone the repository.
+To easily toggle leak protection on and off, use [WebRTC Leak Prevent Toggle](https://github.com/rentamob/WebRTC-Leak-Prevent-Toggle).
 
 ---
 
@@ -25,7 +25,7 @@ You may also run the extension unpacked via Developer mode. Just download or clo
 
 WebRTC Leak Prevent does not collect any user data. 
 
-The extension is hosted entirely on GitHub, the Chrome Web Store, and Opera Addons. These services may collect user data.
+The extension is hosted entirely on GitHub, the Chrome Web Store, and Opera Addons. These services may independently collect user data.
 
 #####License
 
