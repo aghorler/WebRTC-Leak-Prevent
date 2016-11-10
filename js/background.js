@@ -9,7 +9,7 @@ chrome.storage.local.get(null, function(items){
 			try{
 				chrome.storage.local.set({
 					rtcIPHandling: 'default_public_interface_only'
-				}, function() {
+				}, function(){
 					chrome.privacy.network.webRTCIPHandlingPolicy.set({
 						value: 'default_public_interface_only'
 					});
