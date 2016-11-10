@@ -39,7 +39,7 @@ chrome.extension.isAllowedIncognitoAccess(function(isAllowedAccess){
 	var incognitoAllowed = document.getElementById('incognitoAllowed');
 	var incognitoDisallowed = document.getElementById('incognitoDisallowed');
 	
-	if(isAllowedAccess == true){
+	if(isAllowedAccess){
 		incognitoDisallowed.style.display = 'none';
 	}
 	else{
@@ -110,13 +110,11 @@ function saveOptions(){
 			status.textContent = 'Options saved.';
 			status.style.color = "green";
 			try{
-				chrome.storage.local.get('rtcMultipleRoutes', function(items){
+				chrome.storage.local.get(null, function(items){
 					chrome.privacy.network.webRTCMultipleRoutesEnabled.set({
 						value: !items.rtcMultipleRoutes,
 						scope: 'regular'
 					});
-				});
-				chrome.storage.local.get('nonProxiedUDP', function(items){
 					chrome.privacy.network.webRTCNonProxiedUdpEnabled.set({
 						value: !items.nonProxiedUDP,
 						scope: 'regular'
