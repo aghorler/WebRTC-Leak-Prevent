@@ -6,19 +6,19 @@
 
 Setting | Effect 
 --- | ---
-`Use the default public interface only` | Send WebRTC traffic via the default public network adapter. This will be the VPN adapter for system-VPN users.
+`Use the default public interface only` | Send WebRTC traffic via the default public network adapter to the Internet. This will be the VPN adapter for system-VPN users.
 `Use the default public interface and private interface` | Same as above, except allow WebRTC traffic through the default private interface to your local network as well.
 `Disable non-proxied UDP (force proxy)` | Force the use of a proxy, and only allow WebRTC traffic over UDP proxies. This will effectively disable WebRTC communication for most users (depending on UDP proxy usage).
 
 **Legacy options (Chrome 42 - 47)**
 
-The legacy options are only displayed if you're using an older verison of Chrome. 
+The legacy options are only displayed if you're using an older version of Chrome. 
 
 `Prevent WebRTC from using routes other than the default route` is identical to `Use the default public interface only`, and `Prevent WebRTC from using non-proxied UDP` is identical to `Disable non-proxied UDP (force proxy)`.
 
 **Older versions of Chrome (Chrome <42)**
 
-WebRTC Leak Prevent is not compaitible with Chrome versions below 42.
+WebRTC Leak Prevent is not compaitible with versions of Chrome below 42.
 
 --
 #### I'm using a VPN or proxy, how do I prevent WebRTC leaks?
@@ -66,6 +66,7 @@ Remove the extension.
 
 Remove the extension.
 
+--
 #### What is 'Incognito protection'?
 
 By default, Chrome does not allow extensions to run in [Incognito mode](https://support.google.com/chrome/answer/7005900?hl=en&rd=1). WebRTC Leak Prevent therefore cannot prevent WebRTC leaks in Incognito mode by default.
