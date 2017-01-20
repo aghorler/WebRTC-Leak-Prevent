@@ -1,6 +1,6 @@
-### Documentation
+## Documentation
 
-#### What do the settings mean and do?
+### What do the settings mean and do?
 
 **WebRTC IP handling policy (Chrome 48+)**
 
@@ -21,7 +21,7 @@ The legacy options are only displayed if you're using an older version of Chrome
 WebRTC Leak Prevent is not compaitible with versions of Chrome below 42.
 
 --
-#### I'm using a VPN or proxy, how do I prevent WebRTC leaks?
+### I'm using a VPN or proxy, how do I prevent WebRTC leaks?
 
 Seriously, how do I do this?
 
@@ -67,7 +67,7 @@ Remove the extension.
 Remove the extension.
 
 --
-#### What is 'Incognito protection'?
+### What is 'Incognito protection'?
 
 By default, Chrome does not allow extensions to run in [Incognito mode](https://support.google.com/chrome/answer/95464). WebRTC Leak Prevent therefore cannot prevent WebRTC leaks in Incognito mode by default.
 
