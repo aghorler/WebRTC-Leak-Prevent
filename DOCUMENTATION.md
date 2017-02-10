@@ -69,6 +69,8 @@ Remove the extension.
 --
 ### What is 'Incognito protection'?
 
+<img src="https://i.imgur.com/1bHAIhy.png" width="60%">
+
 By default, Chrome does not allow extensions to run in [Incognito mode](https://support.google.com/chrome/answer/95464). WebRTC Leak Prevent therefore cannot prevent WebRTC leaks in Incognito mode by default.
 
 To enable Incognito protection check 'Allow in incognito' under WebRTC Leak Prevent in the Chrome Extension menu.
