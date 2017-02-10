@@ -67,6 +67,15 @@ Remove the extension.
 Remove the extension.
 
 --
+### How do I test for WebRTC leaks?
+
+GitHub developer [diafygi](https://github.com/diafygi) has developed an [easy-to-use test](https://diafygi.github.io/webrtc-ips).
+
+After you've set and applied a setting in WebRTC Leak Prevent, open or refresh diafygi's test to verify the effectiveness of the setting.
+
+A WebRTC leak is occuring if you're using a VPN or proxy and your ISP-provided public IP address is visible in the test. You can use one of many tools [like this](http://whatismyipaddress.com/ip/8.8.8.8) to check an IP address.
+
+--
 ### What is 'Incognito protection'?
 
 <img src="https://i.imgur.com/1bHAIhy.png" width="60%">
