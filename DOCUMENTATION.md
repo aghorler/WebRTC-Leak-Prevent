@@ -20,53 +20,53 @@ The legacy options are only displayed if you're using an older version of Chrome
 
 WebRTC Leak Prevent is not compaitible with versions of Chrome below 42.
 
---
+---
 ### I'm using a VPN or proxy, how do I prevent WebRTC leaks?
 
 Seriously, how do I do this?
 
---
+---
 **I'm using a VPN that I installed software for, or configured in my operating system.**
 
 In your case, the default settings should prevent leaks.
 
 *WebRTC IP handling policy* is set to `Use the default public interface only` by default.
 
---
+---
 **I'm using a VPN in the form of a browser extension.**
 
 These VPNs are considered proxies in Chrome.
 
 Set *WebRTC IP handling policy* to `Disable non-proxied UDP (force proxy)`.
 
---
+---
 **I'm using the built-in VPN feature in Opera.**
 
 Set *WebRTC IP handling policy* to `Disable non-proxied UDP (force proxy)`.
 
---
+---
 **I'm using a proxy.**
 
 Set *WebRTC IP handling policy* to `Disable non-proxied UDP (force proxy)`.
 
---
+---
 **I'm not using a proxy or a VPN, but I want to conceal my local IP address.**
 
 The default settings will prevent local leaks.
 
 *WebRTC IP handling policy* is set to `Use the default public interface only` by default.
 
---
+---
 **I don't want to prevent leaks.**
 
 Remove the extension.
 
---
+---
 **I don't know what leaks are.**
 
 Remove the extension.
 
---
+---
 ### How do I test for WebRTC leaks?
 
 GitHub developer [diafygi](https://github.com/diafygi) has developed an [easy-to-use test](https://diafygi.github.io/webrtc-ips).
@@ -75,7 +75,7 @@ After you've set and applied a setting in WebRTC Leak Prevent, open or refresh d
 
 A WebRTC leak is occuring if you're using a VPN or proxy and your ISP-provided public IP address is visible in the test. You can use one of many tools [like this](http://whatismyipaddress.com/ip/8.8.8.8) to check an IP address.
 
---
+---
 ### What is 'Incognito protection'?
 
 <img src="https://i.imgur.com/1bHAIhy.png" width="60%">
