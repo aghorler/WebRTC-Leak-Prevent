@@ -64,7 +64,7 @@ Remove the extension.
 ---
 **I don't know what leaks are.**
 
-Remove the extension.
+In this context leaks refer to the visibility of your personally identifiable IP address, even when using a VPN or proxy. For users with reasons to be concerned about privacy, such as Facebook users in China or anyone in the United States.
 
 ---
 ### How do I test for WebRTC leaks?
