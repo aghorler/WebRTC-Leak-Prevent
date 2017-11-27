@@ -7,7 +7,7 @@
 		"128": "/img/icon128.png"
 	},
 	"browser_action": {
-		"name": "Clear cookies and site data."
+		"name": "Open options."
 	},
 	"options_ui": {
 		"page": "/html/options.html",
