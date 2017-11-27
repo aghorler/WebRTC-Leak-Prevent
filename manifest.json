@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "WebRTC Leak Prevent",
 	"version": "1.0.12",
-	"description": "Prevent WebRTC leaks in Chrome using the official API.",
+	"description": "Prevent WebRTC leaks using the official API.",
 	"icons": {
 		"128": "/img/icon128.png"
 	},
