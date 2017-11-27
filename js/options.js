@@ -1,8 +1,25 @@
+/* Function to get version of Chrome. https://stackoverflow.com/a/4900484 */
 function getMajorVerison(){
 	var raw = navigator.userAgent.match(/Chrom(e|ium)\/([0-9]+)\./);
 	return raw ? parseInt(raw[2], 10) : false;
 }
 
+/* Function to determine if extension is allowed to run in Incognito mode. */
+function testIncognito(){
+	chrome.extension.isAllowedIncognitoAccess(function(isAllowedAccess){
+		var incognitoAllowed = document.getElementById('incognitoAllowed');
+		var incognitoDisallowed = document.getElementById('incognitoDisallowed');
+
+		if(isAllowedAccess){
+			incognitoDisallowed.style.display = 'none';
+		}
+		else{
+			incognitoAllowed.style.display = 'none';
+		}
+	});
+}
+
+/* Function to display setting page content, depending on Chrome version. */
 function displayContent(){
 	var divContent = document.getElementById('content');
 	var divNew = document.getElementById('new');
@@ -11,22 +28,22 @@ function displayContent(){
 	var divFail = document.getElementById('fail');
 	var divIncognito = document.getElementById('incognito');
 	var divApply = document.getElementById('applyButton');
-	
+
 	if(getMajorVerison() > 47){
 		divLegacy.style.display = 'none';
 		divFail.style.display = 'none';
-		chrome.extension.isAllowedIncognitoAccess();
+		testIncognito();
 	}
 	else if(getMajorVerison() > 41 && getMajorVerison() < 47){
 		divNew.style.display = 'none';
 		divFail.style.display = 'none';
 		pLegacyProxy.style.display = 'none';
-		chrome.extension.isAllowedIncognitoAccess();
+		testIncognito();
 	}
 	else if(getMajorVerison() == 47){
 		divNew.style.display = 'none';
 		divFail.style.display = 'none';
-		chrome.extension.isAllowedIncognitoAccess();
+		testIncognito();
 	}
 	else{
 		divContent.style.display = 'none';
@@ -35,18 +52,7 @@ function displayContent(){
 	}
 }
 
-chrome.extension.isAllowedIncognitoAccess(function(isAllowedAccess){
-	var incognitoAllowed = document.getElementById('incognitoAllowed');
-	var incognitoDisallowed = document.getElementById('incognitoDisallowed');
-	
-	if(isAllowedAccess){
-		incognitoDisallowed.style.display = 'none';
-	}
-	else{
-		incognitoAllowed.style.display = 'none';
-	}
-});
-
+/* Function to save and set options. */
 function saveOptions(){
 	if(getMajorVerison() > 47){
 		var policy = document.getElementById('policy').value;
@@ -133,6 +139,7 @@ function saveOptions(){
 	}
 }
 
+/* Function to restore options. */
 function restoreOptions(){
 	if(getMajorVerison() > 47){
 		chrome.storage.local.get({
@@ -159,6 +166,7 @@ function restoreOptions(){
 	}
 }
 
+/* Event listeners. */
 document.addEventListener('DOMContentLoaded', displayContent);
 document.addEventListener('DOMContentLoaded', restoreOptions);
 document.getElementById('save').addEventListener('click', saveOptions);
