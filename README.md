@@ -1,5 +1,5 @@
 ## WebRTC Leak Prevent
-**Version 1.0.13 | April 12 2018**
+**Version 1.0.14 | May 9 2018**
 
 WebRTC Leak Prevent provides user control over WebRTC privacy settings in Chromium that have no native GUI. The intended use of the extension is to prevent [WebRTC leaks](https://diafygi.github.io/webrtc-ips/).
 
